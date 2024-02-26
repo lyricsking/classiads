@@ -3,21 +3,22 @@ import { CommonProps } from "~/shared/types/common.props";
 import ScrollToTop from "~/shared/component/scroll.to.top";
 
 type Props = CommonProps & {
+  children?: React.ReactNode;
   header?: React.ReactNode;
   sidebar?: React.ReactNode;
   footer?: React.ReactNode;
 };
 
 export default function MainLayout(props: Props) {
-  const { footer, header, sidebar } = props;
+  const { children, footer, header, sidebar } = props;
   return (
     <div className="min-h-screen bg-base-300">
-      {header}
+      {header && <header>{header}</header>}
 
       <div>
         {sidebar && <aside>{sidebar}</aside>}
         <main>
-          <Outlet />
+          {children}
         </main>
       </div>
 
@@ -26,7 +27,7 @@ export default function MainLayout(props: Props) {
       {footer && (
         <>
           <div className="divider divider-md" />
-          <footer> {props.footer} </footer>
+          <footer> {footer} </footer>
         </>
       )}
     </div>

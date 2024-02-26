@@ -5,6 +5,7 @@ import { useLoaderData, useNavigate } from "@remix-run/react";
 import Hero from "./hero";
 import { projects } from "~/shared/data/projects";
 import Social from "~/shared/component/social";
+import Header from "~/shared/component/header";
 
 export const meta: MetaFunction = () => {
   return [
@@ -29,6 +30,7 @@ export default function Home() {
   };
   return (
     <>
+      <Header className="fixed top-0 z-50 bg-base-200 bg-opacity-60" title="ClassiAds" titleLink="" />
       <Hero callToAction={callToAction} />
       <div id="stats">
         <Stats className="bg-base-100" />

@@ -1,4 +1,6 @@
+import Header from "~/shared/component/header";
 import SvgDeveloper from "./developer";
+import Search from "~/shared/component/search";
 
 type Props = {
   callToAction: () => void;
@@ -6,35 +8,36 @@ type Props = {
 
 export default function Hero(props: Props) {
   return (
-    <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row px-3">
-        <div className="flex flex-col justify-center ">
-          <h1 className="text-5xl font-bold">Hi 👋, I'm Jamiu Adeniyi</h1>
-          <p className="mt-2">I am fullstack web and mobile app developer.</p>
-          <p className="mt-2">
-            <span className="font-bold my-2">Welcome 🤗</span> to my new
-            portfolio website built 😘 with React{" "}
-            <a href="https://remix.run">(Remix framework)</a> and{" "}
-            <a href="https://tailwindcss.com">TailwindCSS</a>.
-          </p>
-          <p className="mt-2">
-            I will continually post my new projects on here so you can see the
-            projects have worked easily. You can search or filter through these
-            project list below.
-            <br />
-            <br />
-            If you have any question and/or enquiry, feel free to reach oit to
-            me.
-          </p>
-          <button
-            className="btn bg-gray-200 uppercase mt-6 dark:text-base-200"
-            onClick={props.callToAction}
-          >
-            Get in touch
-          </button>
+    <div className="hero" style={{backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)'}}>
+      <div className="hero-content p-0">
+        <div className="flex flex-col justify-center space-y-20 min-h-screen">
+          <div className="max-w-md rounded py-6 px-3 bg-base-200 bg-opacity-60">
+            <h1 className="mb-5 text-3xl text-center font-bold px-3">Browse over 95,000,000 ads listing.</h1>
+            
+            <Search 
+              className="mx-3 p-2 rounded" 
+              searchInput={
+                {
+                  id: "",
+                  className:"w-full input line-clamp-1",
+                  name: '',
+                  defaultValue: '',
+                  placeholder:"Search by ads title, keyword, category, etc"
+                
+                }
+              }
+              locationInput={
+                {
+                  id: "",
+                  className:"w-full input",
+                  name: '', 
+                  defaultValue: '',
+                  placeholder: ''
+                }
+              }
+            />      
+          </div>
         </div>
-
-        <SvgDeveloper />
       </div>
     </div>
   );
